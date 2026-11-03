@@ -2,10 +2,13 @@
 import argparse
 from urllib.parse import urlparse
 
-
 def is_valid_url(URL):
     parsed = urlparse(URL)
-    if parsed.scheme in ("http", "https") and parsed.hostname is not None:
+    if (
+    parsed.scheme in ("http", "https")
+    and parsed.hostname in ("github.com", "gitlab.com", "bitbucket.org")
+    and "" not in parsed.path.split("/")[1:-1]
+    ):
         return True
     else:
         return False
