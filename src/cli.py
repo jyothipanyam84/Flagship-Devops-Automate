@@ -1,4 +1,5 @@
-
+import sys
+import subprocess
 import argparse
 from urllib.parse import urlparse
 
@@ -31,6 +32,7 @@ def main():
             print("Repository:", args.repo)
         else:
             print("Invalid URL")
+            sys.exit(1)
 
     elif args.command == "status":
         print("Platform status: ready")
